@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import MovieBox from './MovieBox';
 
 
 const SuggestMe = () => {
   const [allMovies, setAllMovies] = useState([]);
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
   async function fetchMovies() {
-    if (allMovies.length === 0) {
-      const response = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=796c4de4e6f6a1acdada4f13bf87bef9&page=4');
-      const data = await response.json();
-      setAllMovies(data.results);
-    }
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=796c4de4e6f6a1acdada4f13bf87bef9&language=tr-tur&page=${page}`);
+    const data = await response.json();
+    setAllMovies([...allMovies, ...data.results]);
+    setPage(page + 1);
 
     const randomMovies = allMovies
       .filter(movie => !movies.includes(movie))
@@ -20,11 +20,9 @@ const SuggestMe = () => {
       .slice(0, 5);
     setMovies(randomMovies);
   }
-
-
   return (
     <div className='mx-4'>
-    <Button onClick={fetchMovies} className='my-4 mx-5' variant="dark">Suggest Me</Button>
+    <Button onClick={fetchMovies} className='my-4 mx-5' variant="dark">Bana Öner</Button>
     
     <div className='container'>
        
@@ -33,6 +31,14 @@ const SuggestMe = () => {
     <MovieBox key={movieReq.id} {...movieReq}/>)} 
     </div>
     </div>
+    <Card className="bg-dark fixed-bottom text-center text-white"> 
+      <Card.Body>
+        <Card.Text>
+         MOVİES | Copyright © 2023 <br />
+         Developer: <a href="https://github.com/ahmetucar1" target="_blank" rel="noopener noreferrer">Ahmet</a>
+        </Card.Text>
+      </Card.Body>
+    </Card>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { Modal } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import React, {useState} from 'react'
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 
@@ -9,8 +9,7 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
   const handleClose = () => setShow(false);
 
   return (
-   <div>
-   
+   <div >
      <div className='card text-center mb-3'>
       <div className='card-body'>
         <img className='card-img-top' src={API_IMG+poster_path} alt="" />
@@ -21,7 +20,7 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
                 <Modal.Title>{title}</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <img className='card-img-top' src={API_IMG+poster_path} alt="" />
+                <img className='card-img-top' style={{width: '14rem'}} src={API_IMG+poster_path} alt="" />
                 <h3> {title} </h3>
                 <h4> ImDB: {vote_average} </h4>
                 <h5> Relase Date: {release_date} </h5>
@@ -29,6 +28,9 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
                 <h6>Overview</h6>
                 <p> {overview} </p>
               </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>Kapat</Button>
+              </Modal.Footer>
             </Modal>
         </div>
       </div>
