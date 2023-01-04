@@ -22,10 +22,12 @@ const SuggestMe = () => {
   }
   return (
     <div className='mx-4'>
-    <Button onClick={fetchMovies} className='my-4 mx-5' variant="dark">Bana Öner</Button>
-    
-    <div className='container'>
-       
+      
+      <div className='btn-suggest'>
+      <Button onClick={fetchMovies} className={'mx-3'} variant="dark">Öner</Button>
+      </div>
+  
+    <div className='container'>     
       <div className='grid'>
     {movies && movies.map((movieReq) => 
     <MovieBox key={movieReq.id} {...movieReq}/>)} 

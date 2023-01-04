@@ -40,4 +40,8 @@ body {
   .grid {
     grid-template-columns: repeat(3,1fr);
   }
+  .btn-suggest {
+    display: flex;
+    justify-content: center;
+  }
 }
