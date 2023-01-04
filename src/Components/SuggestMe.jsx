@@ -16,8 +16,8 @@ const SuggestMe = () => {
 
     const randomMovies = allMovies
       .filter(movie => !movies.includes(movie))
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 5);
+      .sort(() => 0.3 - Math.random())
+      .slice(0, 3);
     setMovies(randomMovies);
   }
   return (
