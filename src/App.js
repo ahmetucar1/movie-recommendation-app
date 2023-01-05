@@ -5,6 +5,7 @@ import NavbarNav from './Components/Navbar'
 import Home from './Components/Home';
 import SuggestMe from './Components/SuggestMe';
 import {  Routes, Route } from 'react-router-dom';
+import FilteredSuggest from './Components/FilteredSuggest';
 
 
 
@@ -19,6 +20,7 @@ return (
     <Routes>
        <Route path='/' exact element={<Home />} />
        <Route path='/suggestme' element={<SuggestMe/>} />
+       <Route path='/filteredsuggest' element={<FilteredSuggest/>} />
     </Routes>
      </div>
   

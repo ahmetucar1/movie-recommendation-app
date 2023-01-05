@@ -11,7 +11,8 @@ const NavbarNav = () => {
           <Navbar.Brand className='mx-3' href='/'>MOVİES</Navbar.Brand>
           <Nav className="me-auto">
             <Link to={"/"} className='nav-item nav-link active'>Home</Link>
-            <Link to={"/suggestme"} className='nav-item nav-link'>Bana Öner</Link>
+            <Link to={"/suggestme"} className='nav-item nav-link'>Rastgele Öner</Link>
+            <Link to={"/filteredsuggest"} className='nav-item nav-link'>Filtrele Öner</Link>
           </Nav>
         </Container>
     </Navbar>
