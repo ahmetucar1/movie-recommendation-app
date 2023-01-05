@@ -60,9 +60,9 @@ body {
 @media screen and (max-width: 774px) {
   .grid {
     grid-template-columns: repeat(3,1fr);
+    margin-left: 0;
   }
-  .btn-suggest {
-    display: flex;
-    justify-content: center;
+  .card-body {
+    width: 7rem;
   }
 }
