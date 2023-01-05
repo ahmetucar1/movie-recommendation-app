@@ -1,4 +1,4 @@
-import { Modal, Form, FormControl, Button, FormGroup, CardGroup } from 'react-bootstrap';
+import { Modal, Form, FormControl, Button, Card, FormGroup, CardGroup } from 'react-bootstrap';
 import React, { useState } from 'react';
 import MovieBox from './MovieBox';
 
@@ -104,6 +104,14 @@ const FilteredSuggest = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Card className="bg-dark fixed-bottom text-center text-white"> 
+      <Card.Body className='footer'>
+        <Card.Text>
+         MOVİES | Copyright © 2023 <br />
+         Developer: <a href="https://github.com/ahmetucar1" target="_blank" rel="noopener noreferrer">Ahmet</a>
+        </Card.Text>
+      </Card.Body>
+    </Card>
     </div>
   );
 };

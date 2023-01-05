@@ -33,7 +33,7 @@ const SuggestMe = () => {
     </div>
 
     <Card className="bg-dark fixed-bottom text-center text-white"> 
-      <Card.Body>
+      <Card.Body className='footer'>
         <Card.Text>
          MOVİES | Copyright © 2023 <br />
          Developer: <a href="https://github.com/ahmetucar1" target="_blank" rel="noopener noreferrer">Ahmet</a>
