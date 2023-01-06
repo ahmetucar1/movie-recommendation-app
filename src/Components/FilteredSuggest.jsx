@@ -69,7 +69,7 @@ const FilteredSuggest = () => {
     </FormGroup>
     <Button className='btn btn-dark mx-2 mt-4' type='submit'>Kaydet ve Öner</Button>
      {movies.length > 0 && (
-    <Button className='btn btn-dark mt-4' onClick={(e) => fetchMovies(e, true)} variant="secondary">Değiştir</Button>
+    <Button className='btn btn-dark mt-4' onClick={(e) => fetchMovies(e, true)} variant="secondary">Beğenmedim Değiştir</Button>
     )}
     </Form>
       <CardGroup>
