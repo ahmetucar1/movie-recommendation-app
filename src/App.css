@@ -7,7 +7,7 @@ body {
   text-decoration: none;
   list-style-type: none;
   outline: none;
-  background-image: url(./assets/Djmy6P.webp);
+  background-image: url(./assets/background.webp);
 }
 
 .container {
@@ -48,6 +48,17 @@ body {
   width: 9.5rem;
   background-color: white;
  }
+
+.carousel {
+  background-image: url(./assets/carousel.jpg);
+  background-color: aqua;
+  border-radius: 7px;
+}
+
+
+.list {
+  list-style-type: decimal;
+}
 
 
 @media screen and (max-width: 992px) {
