@@ -177,7 +177,7 @@ const Home = () => {
     {cinemaMovies && cinemaMovies.map((movieReq) => 
     <MovieBox key={movieReq.id} {...movieReq}/>)} 
     </div>
-    <Card className="bg-dark footer>>= text-center text-white"> 
+    <Card className="bg-dark mt-5 text-center text-white"> 
       <Card.Body className='footer'>
         <Card.Text>
          MOVİES | Copyright © 2023 <br />
