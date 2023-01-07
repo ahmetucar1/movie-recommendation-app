@@ -26,11 +26,11 @@ const FilteredSuggest = () => {
     const response = await fetch(API_KEY);
       const data = await response.json();
       if (changeMovies) {
-        setMovies(data.results.slice(0, 3));
+        setMovies(data.results.slice(0, 25));
       }
       setAllMovies([...allMovies, ...data.results]);
       setPage(page + 1);
-      setMovies(data.results.slice(0, 3));
+      setMovies(data.results.slice(0, 25));
      
     }
   
@@ -73,13 +73,12 @@ const FilteredSuggest = () => {
     )}
     </Form>
       <CardGroup>
-        <div className='container'>
-            <div className='grid'>
-            {movies && movies.map((movie) => 
-             <MovieBox handleShow={handleShow} key={movie.id} {...movie}/>)} 
-            
-             </div>
-        </div>
+        
+        <div className='scroll-carousel'>
+    {movies && movies.map((movie) => 
+    <MovieBox handleShow={handleShow} key={movie.id} {...movie}/>)} 
+    </div>
+       
       </CardGroup>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>

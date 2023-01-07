@@ -19,7 +19,7 @@ const Carousels = () => {
   return (
     <div>
       <Carousel indicators={false}  controls={false}>
-  <Carousel.Item className='carousel'>
+  <Carousel.Item className='carousels'>
     <div className="d-flex justify-content-between">
       <div className="p-4 carousel-box text-white">
         <h3>Merhaba!</h3>
