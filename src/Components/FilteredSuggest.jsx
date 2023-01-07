@@ -1,5 +1,5 @@
 import { Modal, Form, FormControl, Button, Card, FormGroup, CardGroup } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieBox from './MovieBox';
 
 
@@ -20,6 +20,15 @@ const FilteredSuggest = () => {
     setSelectedMovie(movie);
     setShowModal(true);
   };
+
+  useEffect(() => {
+    async function fetchDefaultMovies() {
+      const response = await fetch(API_KEY);
+      const data = await response.json();
+      setMovies(data.results);
+    }
+    fetchDefaultMovies();
+  });
 
   async function fetchMovies(e, changeMovies) {
     e.preventDefault();

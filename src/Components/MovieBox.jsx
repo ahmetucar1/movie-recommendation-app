@@ -1,26 +1,26 @@
 import { Modal, Button } from 'react-bootstrap';
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 const API_IMG="https://image.tmdb.org/t/p/w500/";
 
 
 const MovieBox = ({title, poster_path, vote_average, release_date, overview}) => {
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(true);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  const Loading = ({ show }) => {
-    return (
-      <div className="text-center loading mt-5">
-        {show && <h3>Yükleniyor...</h3>}
-      </div>
-    );
-  };
+  useEffect(() => {
+  
+    setLoading(false);
+  }, []);
 
   return (
     <div>
-     {(title === null || title === undefined || title === "" || poster_path === null || poster_path === undefined || poster_path === "") ? (
-  <Loading show={true} />
-) : (
+      {loading ? (
+        <div className="text-center loading mt-5">
+          <h3>Yükleniyor</h3>
+        </div>
+      ) : (
         <div className='card text-center mb-3'>
           <div className='card-body'>
             <img className='card-img-top' src={API_IMG+poster_path} alt="" />
@@ -32,7 +32,7 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
                 </Modal.Header>
                 <Modal.Body>
                   <img className='card-img-top' style={{width: '14rem'}} src={API_IMG+poster_path} alt="" />
-                  <h3> {title} </h3>
+                  <h3> {title || ''} </h3>
                   <h4> IMDB: {vote_average} </h4>
                   <h5> Yayın Tarihi: {release_date} </h5>
                   <br></br>
@@ -47,12 +47,8 @@ const MovieBox = ({title, poster_path, vote_average, release_date, overview}) =>
           </div>
         </div>
       )}
-      <Loading show={false} />
     </div>
-  )
-
-
+  );
 }
 
-
-export default MovieBox
+export default MovieBox;

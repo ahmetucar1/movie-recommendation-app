@@ -7,6 +7,7 @@ const SuggestMe = () => {
   const [allMovies, setAllMovies] = useState([]);
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const API_KEY = `https://api.themoviedb.org/3/discover/movie?api_key=796c4de4e6f6a1acdada4f13bf87bef9&language=tr-tur&page=${page}`
 
   useEffect(() => {
@@ -17,6 +18,11 @@ const SuggestMe = () => {
     }
     fetchMovies();
   });
+
+  useEffect(() => {
+  
+    setLoading(false);
+  }, []);
 
   async function fetchMoreMovies() {
     const response = await fetch(API_KEY);
@@ -34,12 +40,18 @@ const SuggestMe = () => {
   return (
     <div>
     <Button onClick={fetchMoreMovies} className={'mx-3'} variant="dark">Rastgele Öner</Button>
+    {loading ? (
+        <div className="text-center loading mt-5">
+          <h3>Yükleniyor</h3>
+        </div>
+      ) : (
     <div className='container'>
     <div className='scroll-carousel'>
     {movies && movies.map((movie) => 
     <MovieBox key={movie.id} {...movie}/>)} 
     </div>
   </div>
+   )}
     <Card className="bg-dark fixed-bottom text-center text-white"> 
       <Card.Body className='footer'>
         <Card.Text>
