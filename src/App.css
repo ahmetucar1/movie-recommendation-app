@@ -99,7 +99,6 @@ body {
   width: 33.3%;
   height: 26.8px;
   border: .1px solid #032541;
-  margin-left: 12px;
 }
 
 .selector button {
@@ -109,18 +108,32 @@ body {
   color: #333;
   cursor: pointer;
   font-weight: 600;
-
+  padding-left: 27px;
 }
 
 .selector .selected {
   background-color: rgba(3,37,65, 1);
   color: #00b4d8;
   border-radius: 10px;
-  transition-timing-function: ease-in-out(3s)
+  transition-timing-function: ease-in-out(3s);
 }
 
-.selector button:hover {
-  color: #0ad598;
+@media (max-width: 1400px) {
+  .selector {
+    width: 62.1%;
+  }
+}
+
+@media (max-width: 720px) {
+  .selector {
+    width: 93%;
+  }
+}
+
+@media (max-width: 480px) {
+  .selector {
+    width: 100%;
+  }
 }
 
 .loading {
